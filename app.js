@@ -8,10 +8,14 @@ const fouthSquare = $("#four");
 const headertitle = $("h1");
 let levelUp = false;
 let counter = 0;
+let gameOn = true;
 
-$(document).on("keypress", function () {
-  headertitle.text(`Level: ${level}`);
-  addingToComputerSequance();
+$(document).on("keydown", function () {
+  if (gameOn) {
+    headertitle.text(`Level: ${level}`);
+    addingToComputerSequance();
+  }
+  gameOn = false;
 });
 
 $("div").on("click", function (event) {
@@ -121,6 +125,7 @@ function gameReset() {
   level = 1;
   mainSequance = [];
   playerSequance = [];
+  gameOn = true;
   $("body").css("background-color", "#011f3f");
 }
 
