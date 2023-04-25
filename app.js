@@ -158,4 +158,11 @@ function gameReset() {
 
 if ($(window).width() < 960) {
   $("h1").text("Tap Here to start");
+  $(document).on("touchstart", function () {
+    if (gameOn) {
+      headertitle.text(`Level: ${level}`);
+      addingToComputerSequance();
+    }
+    gameOn = false;
+  });
 }
