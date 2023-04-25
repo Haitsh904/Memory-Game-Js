@@ -112,7 +112,7 @@ function checkSequances(firstArr, secondArr) {
     $("body").css("background-color", "red");
     let gameOver = new Audio("sounds/wrong.mp3");
     gameOver.play();
-    setTimeout(gameReset, 250);
+    setTimeout(gameReset, 90);
   }
 }
 
@@ -125,12 +125,13 @@ function gameReset() {
 }
 
 // mobile version ------------- Trial Version
-$(document).on("touchstart", function () {
+
+$("h1").on("touchstart", function () {
   headertitle.text(`Level: ${level}`);
   addingToComputerSequance();
 });
 
-$("div").on("touchstart", function (event) {
+$("div").on("touchend", function (event) {
   let id = event.target.id;
   addingToPlayerSequance(id);
   addingRemovingClass(id);
@@ -139,13 +140,17 @@ $("div").on("touchstart", function (event) {
     counter = 0;
   } else {
     if (playerSequance[counter] !== mainSequance[counter]) {
-      headertitle.text(`Game Over, Press Any Key to Restart`);
+      headertitle.text(`Game Over, tap here to Restart`);
       $("body").css("background-color", "red");
       let gameOver = new Audio("sounds/wrong.mp3");
       gameOver.play();
-      setTimeout(gameReset, 250);
+      setTimeout(gameReset, 90);
     } else {
       counter++;
     }
   }
 });
+
+if ($(window).width() < 960) {
+  $("h1").text("Tap Here to start");
+}
