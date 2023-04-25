@@ -75,6 +75,8 @@ p {
 @media (max-width: 768px) {
   h1 {
     font-size: 1rem;
+    margin-bottom: 15%;
+    margin-top: 10%;
   }
   .square:nth-of-type(1) {
     width: 100px;
