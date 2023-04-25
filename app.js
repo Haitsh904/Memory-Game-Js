@@ -126,30 +126,30 @@ function gameReset() {
 
 // mobile version ------------- Trial Version
 
-$("h1").on("touchstart", function () {
-  headertitle.text(`Level: ${level}`);
-  addingToComputerSequance();
-});
+// $("h1").on("touchstart", function () {
+//   headertitle.text(`Level: ${level}`);
+//   addingToComputerSequance();
+// });
 
-$("div").on("touchend", function (event) {
-  let id = event.target.id;
-  addingToPlayerSequance(id);
-  addingRemovingClass(id);
-  if (mainSequance.length === playerSequance.length) {
-    checkSequances(mainSequance, playerSequance);
-    counter = 0;
-  } else {
-    if (playerSequance[counter] !== mainSequance[counter]) {
-      headertitle.text(`Game Over, tap here to Restart`);
-      $("body").css("background-color", "red");
-      let gameOver = new Audio("sounds/wrong.mp3");
-      gameOver.play();
-      setTimeout(gameReset, 90);
-    } else {
-      counter++;
-    }
-  }
-});
+// $("div").on("touchend", function (event) {
+//   let id = event.target.id;
+//   addingToPlayerSequance(id);
+//   addingRemovingClass(id);
+//   if (mainSequance.length === playerSequance.length) {
+//     checkSequances(mainSequance, playerSequance);
+//     counter = 0;
+//   } else {
+//     if (playerSequance[counter] !== mainSequance[counter]) {
+//       headertitle.text(`Game Over, tap here to Restart`);
+//       $("body").css("background-color", "red");
+//       let gameOver = new Audio("sounds/wrong.mp3");
+//       gameOver.play();
+//       setTimeout(gameReset, 90);
+//     } else {
+//       counter++;
+//     }
+//   }
+// });
 
 if ($(window).width() < 960) {
   $("h1").text("Tap Here to start");
